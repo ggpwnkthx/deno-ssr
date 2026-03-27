@@ -7,6 +7,11 @@ import { isElementVNode, type VNode } from "@ggpwnkthx/jsx";
 
 import { renderChunks } from "./chunks.ts";
 
+/**
+ * Renders a VNode to a ReadableStream of HTML bytes.
+ * @param vnode - The VNode to render.
+ * @returns A ReadableStream yielding HTML chunks with hydration markers.
+ */
 export function renderToReadableStream(
   vnode: VNode,
 ): ReadableStream<Uint8Array> {

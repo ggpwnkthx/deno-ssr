@@ -1,6 +1,6 @@
 {
   "name": "@ggpwnkthx/ssr",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Server-side HTML rendering for normalized VNode trees with hydration marker support",
   "imports": {
     "@ggpwnkthx/jsx": "jsr:@ggpwnkthx/jsx@^0.1",

@@ -1,7 +1,8 @@
 # @ggpwnkthx/ssr
 
 [![Deno v2.7+](https://img.shields.io/badge/Deno-2.7+-lightgrey?logo=deno)](https://deno.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![JSR](https://img.shields.io/badge/jsr-@ggpwnkthx%2Fssr-blue.svg)](https://jsr.io/@ggpwnkthx/ssr)
+[![CI](https://github.com/ggpwnkthx/deno-ssr/workflows/ci/badge.svg)](https://github.com/ggpwnkthx/deno-ssr)
 
 Server-side HTML rendering for normalized VNode trees with hydration marker support.
 
@@ -24,7 +25,7 @@ deno add jsr:@ggpwnkthx/ssr
 Or import directly:
 
 ```typescript
-import { renderToReadableStream, renderToString } from "jsr:@ggpwnkthx/ssr@0.1.0";
+import { renderToReadableStream, renderToString } from "jsr:@ggpwnkthx/ssr@0.1.1";
 ```
 
 ## Usage
@@ -32,7 +33,7 @@ import { renderToReadableStream, renderToString } from "jsr:@ggpwnkthx/ssr@0.1.0
 ### String Rendering
 
 ```typescript
-import { renderToString } from "jsr:@ggpwnkthx/ssr@0.1.0";
+import { renderToString } from "jsr:@ggpwnkthx/ssr@0.1.1";
 
 const html = renderToString(vnode);
 ```
@@ -40,7 +41,7 @@ const html = renderToString(vnode);
 ### Stream Rendering
 
 ```typescript
-import { renderToReadableStream } from "jsr:@ggpwnkthx/ssr@0.1.0";
+import { renderToReadableStream } from "jsr:@ggpwnkthx/ssr@0.1.1";
 
 const stream = renderToReadableStream(vnode);
 const response = new Response(stream, {
@@ -66,32 +67,6 @@ const html = renderToString(vnode);
 // => <div data-hk="0"><h1 data-hk="0.0">Hello</h1><p data-hk="0.1">World</p></div>
 ```
 
-## API Reference
-
-### `renderToString(vnode)`
-
-Renders a VNode tree to an HTML string.
-
-**Parameters:**
-
-- `vnode` (`VNode`): The root VNode to render
-
-**Returns:** `string` — The rendered HTML
-
-**Throws:** `TypeError` if a `ComponentVNode` is encountered
-
-### `renderToReadableStream(vnode)`
-
-Renders a VNode tree to a `ReadableStream<Uint8Array>` of UTF-8 encoded HTML chunks.
-
-**Parameters:**
-
-- `vnode` (`VNode`): The root VNode to render
-
-**Returns:** `ReadableStream<Uint8Array>` — Stream of HTML chunks
-
-**Throws:** `TypeError` if a `ComponentVNode` is encountered
-
 ## Hydration Markers
 
 Hydration markers use `data-hk` attributes with dot-separated tree paths:
@@ -114,29 +89,14 @@ Hydration markers use `data-hk` attributes with dot-separated tree paths:
 
 ```
 src/
-├── mod.ts              # Public exports
-├── escape.ts           # Text and attribute escaping
-├── serialize.ts        # Props and element serialization
-├── chunks.ts           # Shared VNode traversal generator
-├── render-to-string.ts # String renderer
-└── render-to-stream.ts # Stream renderer
-
-tests/
-├── escape.test.ts      # Escaping tests
-├── serialize.test.ts   # Serialization tests
-├── render.test.ts      # Core rendering tests
-├── hydration.test.ts   # Hydration marker tests
-└── stream.test.ts     # Stream renderer tests
+├── mod.ts               # Public exports
+├── escape.ts            # Text and attribute escaping
+├── serialize.ts         # Props and element serialization
+├── chunks.ts            # Shared VNode traversal generator
+├── render-to-string.ts  # String renderer
+└── render-to-stream.ts  # Stream renderer
 ```
 
 ## Examples
-
-Runnable examples demonstrating key features:
-
-```bash
-deno run examples/01-render-document.tsx    # Full HTML document rendering
-deno run examples/03-escaping-untrusted-content.ts  # XSS prevention
-deno run --allow-net=127.0.0.1:8000 examples/02-stream-response.tsx  # Streaming server
-```
 
 See `examples/README.md` for the full list and descriptions.

@@ -17,6 +17,13 @@ import {
 import { escapeText } from "./escape.ts";
 import { isVoid, serializeProps } from "./serialize.ts";
 
+/**
+ * Generates HTML string chunks from a VNode tree.
+ * Yields partial HTML strings for incremental rendering.
+ * @param vnode - The VNode to traverse.
+ * @param path - The current path for hydration markers.
+ * @yields HTML string chunks.
+ */
 export function* renderChunks(
   vnode: VNode,
   path: number[],

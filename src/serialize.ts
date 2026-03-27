@@ -5,6 +5,10 @@
 
 import { escapeAttr } from "./escape.ts";
 
+/**
+ * HTML void elements that have no end tag.
+ * @see https://html.spec.whatwg.org/multipage/syntax.html#void-elements
+ */
 export const VOID_ELEMENTS = new Set([
   "area",
   "base",
@@ -22,6 +26,9 @@ export const VOID_ELEMENTS = new Set([
   "wbr",
 ]);
 
+/**
+ * HTML boolean attributes that represent true/false by presence/absence.
+ */
 export const BOOLEAN_ATTRS = new Set([
   "async",
   "autofocus",
