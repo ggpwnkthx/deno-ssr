@@ -1,0 +1,43 @@
+{
+  "name": "@ggpwnkthx/ssr",
+  "version": "0.1.0",
+  "imports": {
+    "@ggpwnkthx/jsx": "jsr:@ggpwnkthx/jsx@^0.1",
+    "@std/assert": "jsr:@std/assert@1.0.19"
+  },
+  "fmt": {
+    "lineWidth": 88,
+    "indentWidth": 2,
+    "useTabs": false,
+    "semiColons": true,
+    "singleQuote": false,
+    "proseWrap": "preserve",
+    "trailingCommas": "onlyMultiLine",
+    "operatorPosition": "nextLine"
+  },
+  "lint": {
+    "rules": {
+      "tags": ["recommended"]
+    }
+  },
+  "compilerOptions": {
+    "strict": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "@ggpwnkthx/jsx"
+  },
+  "exports": {
+    ".": "./src/mod.ts"
+  },
+  "tasks": {
+    "test": "deno test --allow-read --coverage=coverage ./tests",
+    "coverage": "deno coverage coverage --lcov --output=coverage/lcov.info && deno coverage coverage",
+    "coverage:check": "deno coverage coverage --summary",
+    "bench": "deno bench ./benchmarks",
+    "fmt": "deno fmt",
+    "fmt:check": "deno fmt --check",
+    "lint": "deno lint ./src ./tests ./examples",
+    "check": "deno check ./src/mod.ts",
+    "ci": "deno task fmt && deno task lint --fix && deno task check && deno task test"
+  },
+  "exclude": [".*", "coverage"]
+}
