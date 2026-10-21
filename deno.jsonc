@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "Server-side HTML rendering for normalized VNode trees with hydration marker support",
   "imports": {
-    "@ggpwnkthx/jsx": "jsr:@ggpwnkthx/jsx@^0.1",
+    "@ggpwnkthx/jsx": "jsr:@ggpwnkthx/jsx@^0.1.8",
     "@std/assert": "jsr:@std/assert@1.0.19"
   },
   "fmt": {
